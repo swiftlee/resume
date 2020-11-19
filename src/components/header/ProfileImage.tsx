@@ -33,7 +33,7 @@ export default function ProfileImage() {
   }, []);
 
   return (
-    <div className="transition transform duration-500 ease-in-out hover:skew-y-6 hover:-skew-x-6">
+    <div className="transition transform duration-500 ease-in-out hover:rotate-6">
       <svg
         width="256pt"
         height="256pt"
