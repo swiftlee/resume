@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# project specific
+src/tailwind.output.css
+src/react-app-env.d.ts
