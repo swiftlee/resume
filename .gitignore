@@ -25,3 +25,4 @@ yarn-error.log*
 # project specific
 src/tailwind.output.css
 src/react-app-env.d.ts
+.eslintcache
