@@ -1,46 +1,23 @@
 import React, { useEffect } from "react";
-import anime from "animejs";
+import { header } from "../../helpers/anime";
+import "../../scss/header/Header.scss";
+
+const { performLogoAnim } = header;
 
 export default function ProfileImage() {
   useEffect(() => {
-    // this call does the actual line drawing animations
-    anime({
-      targets: "#logo path",
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutSine",
-      duration: 3000,
-      direction: "normal",
-      autoplay: true,
-    });
-
-    // this is to fix the fill so it is never the 'error' color which is just a solid black
-    anime({
-      targets: ".logoStroke",
-      fill: ["rgba(0,0,0,0)", "rgba(0,0,0,0)"],
-      easing: "linear",
-      delay: 2750,
-      autoplay: true,
-    });
-
-    // fades in the logo fill colors
-    anime({
-      targets: ".logoFill",
-      opacity: [0, 1],
-      easing: "linear",
-      delay: 2750,
-      autoplay: true,
-    });
+    performLogoAnim();
   }, []);
 
   return (
-    <div className="transition transform duration-500 ease-in-out hover:rotate-6">
+    <div className="logo-hover">
       <svg
-        width="256pt"
-        height="256pt"
+        width="256px"
+        height="256px"
         viewBox="0 0 256 256"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        className="transform transition ease-in-out stroke-current text-opacity-50 text-gray-700 duration-500 hover:text-opacity-25 hover:text-red-400"
+        className="svg-hover"
         id="logo"
       >
         <g id="#594e5bff">

@@ -26,3 +26,4 @@ yarn-error.log*
 src/tailwind.output.css
 src/react-app-env.d.ts
 .eslintcache
+src/styles.css
