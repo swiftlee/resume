@@ -1,0 +1,14 @@
+.section {
+  @apply w-full grid grid-rows-1 mt-6 px-2;
+  grid-template-columns: 0.25fr 1fr 0.25fr;
+
+  span {
+    &.title {
+      @apply flex justify-center text-gray-200 text-4xl mb-3;
+    }
+
+    &.subtitle {
+      @apply flex justify-center text-gray-200 text-xs mb-6;
+    }
+  }
+}

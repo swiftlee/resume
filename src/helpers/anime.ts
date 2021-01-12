@@ -75,24 +75,14 @@ export const header = {
       });
   },
 
-  performWavesAnim: () => {
-    anime({
-      targets: ".waves",
-      opacity: [0, 0.4],
-      easing: "easeInOutQuad",
-      duration: 1000,
-      delay: 1250,
-    });
-  },
-
   performSubtitleAnim: (el: any) => {
     const letters: HTMLElement[] = Array.from(el.querySelectorAll(".letter"));
-    const TYPE_AFTER_MS = 250;
-    const JUMP_AFTER_MS = 100 + Math.random() * 75;
+    const TYPE_AFTER_MS = 250 / 1.75;
+    const JUMP_AFTER_MS = (100 + Math.random() * 75) / 1.75;
 
     let blink = anime({
       targets: ".subtitle .cursor",
-      duration: 1250,
+      duration: 1250 / 1.75,
       opacity: [{ value: [1, 1] }, { value: [0, 0] }],
     });
 
@@ -126,4 +116,17 @@ export const header = {
         TYPE_AFTER_MS
       );
   },
+};
+
+export const performPercentageAnimation = (id: number, percentage: number) => {
+  const config = {
+    targets: `#meter${id}`,
+    strokeDashArray: [percentage, 100],
+    easing: "easeInOutQuad",
+    duration: 2000,
+    direction: "normal",
+    autoplay: true,
+  };
+
+  anime.timeline().add(config);
 };

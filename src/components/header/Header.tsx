@@ -8,7 +8,6 @@ const {
   performHorizontalAnim,
   performLoadingTextAnim,
   performSubtitleAnim,
-  performWavesAnim,
 } = header;
 
 export default function Header() {
@@ -21,7 +20,6 @@ export default function Header() {
   useEffect(() => {
     performHorizontalAnim();
     performLoadingTextAnim();
-    performWavesAnim();
     setTimeout(() => {
       setText((prevState) => {
         return { text: "Jon Conlin", textClass: "name", loading: false };
@@ -33,7 +31,7 @@ export default function Header() {
   return (
     <div className="flex justify-center bg-opacity-25 border-b border-opacity-10 border-gray-800 bg-gray-800">
       <div className="grid header-grid m-0 w-full">
-        <Navbar />
+        <div />
         <div className="logo-grid flex flex-col text-gray-300 w-full">
           <hr className="hr-left my-auto place-self-start"></hr>
           <ProfileImage />
