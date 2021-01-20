@@ -4,11 +4,11 @@
 
   span {
     &.title {
-      @apply flex justify-center text-gray-200 text-4xl mb-3;
+      @apply flex justify-center text-white text-4xl mb-3;
     }
 
     &.subtitle {
-      @apply flex justify-center text-gray-200 text-xs mb-6;
+      @apply flex justify-center text-white text-xs mb-6;
     }
   }
 }

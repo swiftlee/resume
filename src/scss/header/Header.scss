@@ -35,9 +35,9 @@
   @apply duration-200 ease-out;
   line-height: 1em;
   &:hover {
-    @apply duration-200 ease-in text-gray-200;
-    scale: 1.1;
-    rotate: 3deg;
+    @apply duration-200 ease-in;
+    scale: 1.2;
+    rotate: 1deg;
   }
 }
 
@@ -108,7 +108,7 @@
 }
 
 .letter {
-  @apply cursor-default inline-block text-gray-300;
+  @apply cursor-default inline-block text-white;
 }
 
 .cursor {

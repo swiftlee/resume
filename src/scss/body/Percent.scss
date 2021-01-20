@@ -6,7 +6,7 @@ $circle-stroke-width: 1.5px;
 }
 
 .percent-container {
-  @apply text-gray-300;
+  @apply text-white;
   width: calc(#{$circle-radius} * 2);
 
   svg {
@@ -16,14 +16,9 @@ $circle-stroke-width: 1.5px;
     path {
       fill: none;
       @apply stroke-current;
-      // stroke: rgba(17, 24, 39, var(--tw-text-opacity));
       stroke-width: $circle-stroke-width;
-      animation: progress 2s ease-out forwards;
+      animation: progress 2.4s ease-out forwards;
     }
-    /*  text {
-      @apply text-sm;
-      text-anchor: middle;
-    } */
   }
 }
 

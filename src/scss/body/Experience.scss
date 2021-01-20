@@ -6,9 +6,9 @@
 .arrow {
   @apply flex select-none items-center text-gray-300 rounded-xl px-2 justify-center border border-gray-700 text-2xl transition-colors duration-300 ease-in-out cursor-pointer;
   &:hover {
-    @apply text-gray-200 border-solid border-gray-700 bg-gray-900;
+    @apply text-gray-100 border-solid border-gray-700 bg-gray-900;
   }
   &:active {
-    @apply border-gray-900 text-gray-100 shadow-sm;
+    @apply border-gray-900 text-white shadow-sm;
   }
 }
