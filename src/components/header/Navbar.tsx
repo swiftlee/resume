@@ -3,7 +3,7 @@ import logo from "../../images/profile_image.png";
 
 export default function Navbar() {
   return (
-    <nav className="bg-gray-800 fixed w-full top-0 z-10">
+    <nav className="bg-gray-800 fixed w-full top-0 z-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -63,19 +63,19 @@ export default function Navbar() {
                 </a>
                 <a
                   href="#experience"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-700"
                 >
                   Experience
                 </a>
                 <a
                   href="#projects"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-700"
                 >
                   Projects
                 </a>
                 <a
                   href="#about"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-700"
                 >
                   About
                 </a>
@@ -97,19 +97,19 @@ export default function Navbar() {
           </a>
           <a
             href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-700"
           >
             Experience
           </a>
           <a
             href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-700"
           >
             Projects
           </a>
           <a
             href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-700"
           >
             Calendar
           </a>
@@ -127,7 +127,7 @@ function IconArray(): JSX.Element[] {
   function Wrapper({ children }: IProps): JSX.Element {
     return (
       <div className="inset-y-0 right-0 flex items-center pr-2 static inset-auto ml-3 sm:ml-6 sm:pr-0">
-        <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+        <button className="bg-gray-800 p-1 rounded-full text-gray-400 transform transition duration-300 hover:-translate-y-1 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
           {children}
         </button>
       </div>

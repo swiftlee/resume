@@ -1,0 +1,25 @@
+@media (min-width: 0px) {
+  .image {
+    @apply border border-opacity-80 border-blue-400 border-solid;
+    background: url("/images/headshot.png") 48% 0% no-repeat;
+    width: 175px;
+    height: 175px;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 768px) {
+  .image {
+    @apply border border-opacity-80 border-blue-400 border-solid;
+    background: url("/images/headshot.png") 48% 0% no-repeat;
+    width: 325px;
+    height: 325px;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.wrapper {
+  @apply flex w-full flex-col-reverse md:flex-row flex-nowrap text-white items-center justify-center;
+}

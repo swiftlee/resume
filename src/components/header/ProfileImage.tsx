@@ -10,7 +10,7 @@ export default function ProfileImage() {
   }, []);
 
   return (
-    <div className="logo-hover">
+    <div className="logo-hover logo">
       <svg
         width="256px"
         height="256px"

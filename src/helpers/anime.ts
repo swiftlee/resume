@@ -34,9 +34,9 @@ export const header = {
   performHorizontalAnim: () => {
     anime.timeline({ autoplay: true }).add({
       targets: ".hr-left, .hr-right",
-      width: [0, "100%"],
+      width: [0, "115%"],
       easing: "easeOutExpo",
-      duration: 3000 / 2,
+      duration: 5250,
       direction: "normal",
       delay: 1000 / 2,
     });

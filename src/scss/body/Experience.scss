@@ -1,14 +1,57 @@
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.fadeInRight {
+  animation: fadeInRight 2s cubic-bezier(0.4, 0, 0.6, 1);
+  opacity: 1;
+}
+
+.fadeOutLeft {
+  animation: fadeOutLeft 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+  opacity: 0;
+}
+
 .experience-grid {
-  @apply grid grid-rows-1 bg-gray-800 rounded-2xl p-4;
+  @apply grid grid-rows-1;
   grid-template-columns: 0.1fr 3fr 0.1fr;
 }
 
-.arrow {
-  @apply flex select-none items-center text-gray-300 rounded-xl px-2 justify-center border border-gray-700 text-2xl transition-colors duration-300 ease-in-out cursor-pointer;
-  &:hover {
-    @apply text-gray-100 border-solid border-gray-700 bg-gray-900;
+@media (min-width: 0px) {
+  .navigation-grid {
+    grid-template-columns: 0.5fr 1fr 0.5fr;
   }
-  &:active {
-    @apply border-gray-900 text-white shadow-sm;
+}
+
+.navigation-grid {
+  @apply grid grid-rows-1 md:grid-cols-3 gap-8 md:gap-4 mt-4 md:mt-8;
+  .arrow {
+    @apply inline-flex justify-center select-none text-2xl text-gray-300 rounded-lg border border-gray-700 transition-colors duration-300 ease-in-out cursor-pointer;
+    &:hover {
+      @apply text-gray-100 border-solid border-gray-700 bg-gray-900;
+    }
+    &:active {
+      @apply border-gray-900 text-white shadow-sm;
+    }
   }
 }

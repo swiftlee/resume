@@ -1,6 +1,7 @@
 import React from "react";
 import "../../scss/body/Percent.scss";
 import HideUntilScroll from "../utils/HideUntilScroll";
+import About from "./about/About";
 import Experience from "./experience/Experience";
 
 // TODO: hide body items until
@@ -8,6 +9,9 @@ import Experience from "./experience/Experience";
 export default function Body() {
   return (
     <div className="m-auto">
+      <HideUntilScroll>
+        <About key="About" />
+      </HideUntilScroll>
       <HideUntilScroll>
         <Experience key="Experience" />
       </HideUntilScroll>

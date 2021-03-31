@@ -10,12 +10,12 @@ interface IAttributes {
 
 export default function Section({ title, subtitle, children }: IAttributes) {
   return (
-    <div className="section">
+    <div className="section" id={title.toLowerCase()}>
       <div />
       <div className="bg-gray-800 bg-opacity-25 p-4">
         <div className="bg-gray-800 bg-opacity-25 rounded-lg pt-2 pb-1 mb-2 shadow-sm">
           <span className="title">{title}</span>
-          <span className="subtitle">{subtitle}</span>
+          {subtitle ? <span className="subtitle">{subtitle}</span> : null}
         </div>
         <div className="data">{children}</div>
       </div>

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import ProfileImage from "./ProfileImage";
 import "../../scss/header/Header.scss";
 import { header } from "../../helpers/anime";
-import Navbar from "./Navbar";
+import Description from './description/Description'
+import { transform } from "@babel/core";
+import ContactButton from "./description/ContactButton";
+import HideUntilScroll from "../utils/HideUntilScroll";
 
 const {
   performHorizontalAnim,
@@ -29,10 +32,10 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="flex justify-center bg-opacity-25 border-b border-opacity-10 border-gray-800 bg-gray-800">
+    <div className="flex flex-col overflow-hidden justify-start bg-opacity-25 border-b border-opacity-10 border-gray-800 bg-gray-800" style={{ minHeight: '100vh', paddingTop: '100px' }}>
       <div className="grid header-grid m-0 w-full">
-        <div />
-        <div className="logo-grid flex flex-col text-gray-300 w-full">
+        <div className="bg-gray-800 filler-gap" style={{ zIndex: -1, transform: 'scaleY(13) translateY(-20px)' }} />
+        <div className="logo-grid inline-flex flex-col text-gray-300 w-full">
           <hr className="hr-left my-auto place-self-start"></hr>
           <ProfileImage />
           <hr className="hr-right my-auto place-self-end"></hr>
@@ -46,6 +49,10 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <HideUntilScroll>
+        <Description />
+        <ContactButton />
+      </HideUntilScroll>
     </div>
   );
 }

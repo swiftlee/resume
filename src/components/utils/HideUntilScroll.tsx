@@ -7,7 +7,7 @@ interface Props {
 
 const HideUntilScroll = ({ children }: Props) => {
   const ref = useRef();
-  const [, targetRef] = useFadeTransition(ref);
+  const [_, targetRef] = useFadeTransition(ref);
   /* @ts-ignore */
   return <div ref={targetRef}>{children}</div>;
 };

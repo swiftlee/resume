@@ -12,10 +12,10 @@ export default function ExperienceBubble({
   title,
   id,
 }: IPercentageAttributes): JSX.Element {
-  const [, percent] = useIncrementTo(0, decimal, 650 / (decimal + 1));
+  const [_, percent] = useIncrementTo(0, decimal, 650 / (decimal + 1));
 
   return (
-    <div className="percent-container">
+    <div className="percent-container transform scale-75 md:scale-100">
       <span className="label">{title}</span>
       <div className="flex items-center justify-center">
         <svg viewBox="0 0 36 36">

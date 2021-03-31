@@ -2,7 +2,7 @@ $circle-radius: 64px;
 $circle-stroke-width: 1.5px;
 
 .label {
-  @apply flex justify-center;
+  @apply flex justify-center mb-2 underline;
 }
 
 .percent-container {

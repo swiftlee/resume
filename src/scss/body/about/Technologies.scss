@@ -1,0 +1,7 @@
+.list-item::before {
+  @apply inline-flex text-xs flex-nowrap justify-center items-center bg-blue-400 bg-opacity-40 rounded-full px-1;
+  content: ">";
+  margin-inline-end: 0.5ch;
+  width: 12.5px;
+  height: 12.5px;
+}

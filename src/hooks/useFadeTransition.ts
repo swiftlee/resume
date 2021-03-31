@@ -1,12 +1,12 @@
-import { useState, useEffect, MutableRefObject } from "react";
+import { useState, useEffect, MutableRefObject, Dispatch, SetStateAction } from "react";
 import useIsInViewport from "./useIsInViewport";
-import anime from "animejs";
+import anime, { AnimeTimelineInstance } from "animejs";
 
 const useFadeTransition = (ref: MutableRefObject<any>) => {
   const [isInViewport, targetRef] = useIsInViewport({
     target: ref,
   });
-  const [timeline, setTimeline]: [any, any] = useState();
+  const [timeline, setTimeline] = useState<AnimeTimelineInstance>();
 
   useEffect(() => {
     if (isInViewport !== null && isInViewport !== undefined) {
@@ -23,13 +23,8 @@ const useFadeTransition = (ref: MutableRefObject<any>) => {
         );
       }
       if (timeline?.began) {
-        timeline.reverse();
-
-        if (timeline.progress === 100 && timeline.direction === "reverse")
-          timeline.completed = false;
+        timeline.restart()
       }
-
-      if (timeline?.paused) timeline.play();
     }
   }, [isInViewport]);
 
