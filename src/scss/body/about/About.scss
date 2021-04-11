@@ -11,7 +11,7 @@
 
 @media (min-width: 768px) {
   .image {
-    @apply border border-opacity-80 border-blue-400 border-solid;
+    @apply border border-opacity-80 border-blue-400 border-solid ml-8;
     background: url("/images/headshot.png") 48% 0% no-repeat;
     width: 325px;
     height: 325px;

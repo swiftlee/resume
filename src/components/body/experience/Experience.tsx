@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import Section from "../Section";
 import experience from "../../../data/experience.json";
 import "../../../scss/body/Experience.scss";
@@ -15,7 +15,8 @@ const getExperienceMeters = (): ReactElement[] => {
 };
 
 export default function Experience() {
-  const { next, prev, setPage, paginatedItems, page, pages } = usePagination(6, getExperienceMeters());
+  const { next, prev, setPage, paginatedItems, page, pages, transitioning } = usePagination(6, getExperienceMeters());
+
   return (
     <>
       <Section title="Experience" subtitle="Places of work and technologies">
@@ -29,9 +30,9 @@ export default function Experience() {
           </div>
           <div className="flex justify-center">
             <div className="navigation-grid">
-              <div className="arrow" onClick={prev}>&larr;</div>
+              <div className="arrow" onClick={transitioning ? _ => { } : prev}>&larr;</div>
               <Dots selectedIndex={page} count={pages} setPage={setPage} />
-              <div className="arrow" onClick={next}>&rarr;</div>
+              <div className="arrow" onClick={transitioning ? _ => { } : next}>&rarr;</div>
             </div>
           </div>
         </div>

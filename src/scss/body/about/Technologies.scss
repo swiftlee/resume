@@ -1,7 +1,19 @@
-.list-item::before {
-  @apply inline-flex text-xs flex-nowrap justify-center items-center bg-blue-400 bg-opacity-40 rounded-full px-1;
-  content: ">";
-  margin-inline-end: 0.5ch;
-  width: 12.5px;
-  height: 12.5px;
+.list-item {
+  @apply pl-2;
+}
+
+@media only screen and (min-width: 768px) {
+  .list-item::marker {
+    @apply inline-flex flex-nowrap items-center text-primary text-opacity-40;
+    padding: 4px;
+    content: "▸";
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .list-item::before {
+    @apply inline-flex flex-nowrap items-center text-primary text-opacity-40;
+    padding: 2px;
+    content: "▸";
+  }
 }
