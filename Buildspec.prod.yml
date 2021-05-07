@@ -2,6 +2,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - $(echo $PAT)
       - $(echo $PAT | docker login ghcr.io -u swiftlee --password-stdin)
 
       # - PAT=$(aws secretsmanager get-secret-value --secret-id prod/GH_PAT --query SecretString --output text | cut -d':' -f2 | tr -d \"})
