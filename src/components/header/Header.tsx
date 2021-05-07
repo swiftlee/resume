@@ -27,7 +27,7 @@ export default function Header() {
         return { text: "Jon Conlin", textClass: "name", loading: false };
       });
       performSubtitleAnim(document.querySelector(".subtitle"));
-    }, 3250 / 2);
+    }, 1512.5);
   }, []);
 
   return (
