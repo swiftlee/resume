@@ -1,11 +1,9 @@
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-      docker: 19
   pre_build:
     commands:
-      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - $(echo $PAT)
+      - $(echo $PAT | docker login ghcr.io -u swiftlee --password-stdin)
       - REPOSITORY_URI=ghcr.io/swiftlee/resume
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=prod}
