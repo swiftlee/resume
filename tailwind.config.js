@@ -1,13 +1,9 @@
 module.exports = {
   darkMode: "class",
-  purge: [
-    "public/**/*.html",
-    "src/**/*.html",
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-  ],
+  purge: {
+    layers: ['base', 'components'],
+    content: ['./src/**/*.{js,ts,tsx}', './public/index.html']
+  },
   theme: {
     extend: {
       colors: {
