@@ -14,7 +14,7 @@ const {
 
 export default function Header() {
   const [{ text, textClass, loading }, setText] = useState({
-    text: "Loading...",
+    text: "Testing...",
     textClass: "loading",
     loading: true,
   });
