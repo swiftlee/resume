@@ -46,9 +46,9 @@
 .navigation-grid {
   @apply grid grid-rows-1 md:grid-cols-3 gap-8 md:gap-4 mt-4 md:mt-8;
   .arrow {
-    @apply inline-flex justify-center select-none text-2xl text-gray-300 rounded-lg border border-gray-700 transition-colors duration-300 ease-in-out cursor-pointer overflow-hidden;
+    @apply inline-flex justify-center select-none focus:outline-none text-2xl text-gray-300 rounded-lg border border-gray-700 transition duration-300 ease-in-out overflow-hidden;
     &:hover {
-      @apply text-gray-100 border-solid border-gray-700 bg-gray-900;
+      @apply text-gray-100 border-solid border-gray-700 bg-gray-800;
     }
     &:active {
       @apply border-gray-900 text-white shadow-sm;

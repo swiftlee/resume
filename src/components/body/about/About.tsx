@@ -3,14 +3,14 @@ import Section from '../Section'
 import '../../../scss/body/about/About.scss'
 import Technologies from './Technologies'
 
-const linkClass = 'text-primary transition duration-300 hover:text-primary-full-opacity font-bold'
+const linkClass = 'text-primary transition duration-300 hover:text-primary-full-opacity font-semibold'
 
 export default function About() {
   return <Section title="About" subtitle="">
-    <div className="px-4 md:px-40 py-12 bg-gray-800 rounded-xl">
+    <div className="px-4 md:px-40 py-12 bg-gray-900 rounded-xl text-white">
       <div className='wrapper'>
         <div className='flex-grow w-11/12 md:w-3/5'>
-          <p>
+          <p className='text-justify' style={{ wordSpacing: '0.25px', letterSpacing: '0.05px' }}>
             Hey there! My name is Jon and I enjoy a variety of software development. My journey began when I tried learning C# at 13 and then later became a Spigot developer for Minecraft when I was about 15 years old. I took away some invaluable lessons and spent a lot of time pair-programming with others from the forums and eventually co-founded a development team called Phaseos!
             <br />
             <br />

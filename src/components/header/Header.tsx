@@ -34,7 +34,7 @@ export default function Header() {
   return (
     <div className="flex flex-col overflow-hidden justify-start bg-opacity-25 border-b border-opacity-10 border-gray-800 bg-gray-800" style={{ minHeight: '100vh', paddingTop: '100px' }}>
       <div className="grid header-grid m-0 w-full">
-        <div className="bg-gray-800 filler-gap" style={{ zIndex: -1, transform: 'scaleY(13) translateY(-20px)' }} />
+        <div className="bg-gray-700 filler-gap" style={{ zIndex: -1, transform: 'scaleY(13) translateY(-20px)' }} />
         <div className="logo-grid inline-flex flex-col text-gray-300 w-full">
           <hr className="hr-left my-auto place-self-start"></hr>
           <ProfileImage />

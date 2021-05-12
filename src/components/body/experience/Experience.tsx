@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react";
+import React, { ReactElement } from "react";
 import Section from "../Section";
 import experience from "../../../data/experience.json";
 import "../../../scss/body/Experience.scss";
@@ -17,10 +17,12 @@ const getExperienceMeters = (): ReactElement[] => {
 export default function Experience() {
   const { next, prev, setPage, paginatedItems, page, pages, transitioning } = usePagination(6, getExperienceMeters());
 
+  const btnClass = `arrow ${transitioning ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`
+
   return (
     <>
       <Section title="Experience" subtitle="Places of work and technologies">
-        <div className='bg-gray-800 rounded-xl p-4'>
+        <div className='bg-gray-900 rounded-xl p-4'>
           <div className="experience-grid">
             <div />
             <div id="experience-grid-items" className='grid justify-items-center auto-rows-auto grid-cols-3 gap-8 transform'>
@@ -30,9 +32,9 @@ export default function Experience() {
           </div>
           <div className="flex justify-center">
             <div className="navigation-grid">
-              <div className="arrow" onClick={transitioning ? _ => { } : prev}>&larr;</div>
-              <Dots selectedIndex={page} count={pages} setPage={setPage} />
-              <div className="arrow" onClick={transitioning ? _ => { } : next}>&rarr;</div>
+              <button className={btnClass} onClick={transitioning ? _ => { } : prev} disabled={transitioning}>&larr;</button>
+              <Dots selectedIndex={page} count={pages} setPage={setPage} transitioning={transitioning} />
+              <button className={btnClass} onClick={transitioning ? _ => { } : next} disabled={transitioning}>&rarr;</button>
             </div>
           </div>
         </div>
