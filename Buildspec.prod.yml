@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - PAT=$(aws secretsmanager get-secret-value --secret-id prod/GH_PAT --query SecretString --output text | cut -d':' -f2 | tr -d \"})
+      - echo $PAT | docker login ghcr.io -u swiftlee --password-stdin
+      - REPOSITORY_URI=ghcr.io/swiftlee/resume
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=prod}
+  build:
+    commands:
+      - docker build -t $REPOSITORY_URI:prod -f Dockerfile .
+      - docker tag $REPOSITORY_URI:prod $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - docker push $REPOSITORY_URI:prod
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - printf '[{"name":"jon-resume-default-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json

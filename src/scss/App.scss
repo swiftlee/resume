@@ -9,6 +9,8 @@
 @include font("Karla", "./fonts/Karla/Karla-VariableFont_wght");
 @include font("Karla-Italic", "./fonts/Karla/Karla-Italic-VariableFont_wght");
 
+@import "../styles.css";
+
 body {
   @apply bg-gray-800 text-gray-900;
   font-family: "Karla", sans-serif;

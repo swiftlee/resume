@@ -70,7 +70,7 @@ export const header = {
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 600 / 2,
-        offset: "-=775/2",
+        offset: "-=1000/2",
         delay: (el, i) => (34 * (i + 1)) / 2,
       });
   },
