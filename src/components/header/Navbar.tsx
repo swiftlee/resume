@@ -85,8 +85,8 @@ interface INavbarElementProps {
 }
 
 function NavbarElement({ name, href, bolded = false }: INavbarElementProps) {
-  const classes: string[] = ["text-gray-300 transition duration-300 sm:hover:text-white sm:hover:bg-gray-700", "text-white bg-gray-900"]
-  const clazz = `py-2 px-2 sm:px-3 rounded-lg text-sm font-medium ${classes[Number(bolded)]}`
+  const classes: string[] = ["text-gray-300 transition duration-300 sm:active:bg-gray-800 sm:hover:text-white sm:hover:bg-gray-700", "text-white bg-gray-800 active:bg-gray-700"]
+  const clazz = `py-2 px-2 sm:px-3 rounded-lg text-sm font-medium select-none transition-colors duration-100 ${classes[Number(bolded)]}`
   return <span
     onClick={() => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })}
     className={clazz}
