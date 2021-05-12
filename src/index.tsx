@@ -4,6 +4,10 @@ import './index.css';
 import './tailwind.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { polyfill } from "./helpers/smoothscroll";
+
+// kick off the polyfill!
+polyfill();
 
 ReactDOM.render(
   <React.StrictMode>

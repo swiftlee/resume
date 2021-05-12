@@ -1,7 +1,15 @@
-import React, { ReactNode } from "react";
+import React, { LegacyRef, ReactNode, useRef, useState } from "react";
 import logo from "../../images/profile_image.png";
 
+function MobileAccordion({ modalVisible }: { modalVisible: boolean }) {
+  const containerRef: LegacyRef<any> = useRef(null)
+  return <div ref={containerRef} className='flex items-center justify-around sm:hidden mb-4 max-h-0 overflow-hidden transform transition-all duration-300' style={{ maxHeight: (modalVisible ? (containerRef.current?.scrollHeight + 20) + 'px' : '') }}>
+    <NavbarElements />
+  </div>
+}
+
 export default function Navbar() {
+  const [modalVisible, showModal] = useState(false)
   return (
     <nav className="bg-gray-900 fixed w-full top-0 z-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -10,6 +18,7 @@ export default function Navbar() {
             <button
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-expanded="false"
+              onClick={_ => showModal(!modalVisible)}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -55,30 +64,7 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-white"
-                >
-                  Back To Top
-                </a>
-                <a
-                  href="#about"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-800"
-                >
-                  About
-                </a>
-                <a
-                  href="#experience"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-800"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#projects"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-800"
-                >
-                  Projects
-                </a>
+                <NavbarElements />
               </div>
             </div>
           </div>
@@ -87,41 +73,41 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <div className="hidden sm:hidden">
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900"
-          >
-            Back To Top
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-800"
-          >
-            Experience
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-800"
-          >
-            Projects
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 transition duration-300 hover:text-white hover:bg-gray-800"
-          >
-            Calendar
-          </a>
-        </div>
-      </div>
+      <MobileAccordion modalVisible={modalVisible} />
     </nav>
   );
+}
+
+interface INavbarElementProps {
+  name: string;
+  href: string;
+  bolded?: boolean;
+}
+
+function NavbarElement({ name, href, bolded = false }: INavbarElementProps) {
+  const classes: string[] = ["text-gray-300 transition duration-300 sm:hover:text-white sm:hover:bg-gray-700", "text-white bg-gray-900"]
+  const clazz = `py-2 px-2 sm:px-3 rounded-lg text-sm font-medium ${classes[Number(bolded)]}`
+  return <span
+    onClick={() => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })}
+    className={clazz}
+  >
+    {name}
+  </span>
+}
+
+const NavbarElements = () => {
+  return <React.Fragment>
+    <NavbarElement name="Back To Top" href=".top" bolded></NavbarElement>
+    <NavbarElement name="About" href="#about"></NavbarElement>
+    <NavbarElement name="Experience" href="#experience"></NavbarElement>
+    <NavbarElement name="Projects" href="#projects"></NavbarElement>
+  </React.Fragment>
 }
 
 interface IProps {
   children: ReactNode;
 }
+
 
 function IconArray(): JSX.Element[] {
   function Wrapper({ children }: IProps): JSX.Element {
