@@ -3,8 +3,10 @@ import Section from "../Section";
 import experience from "../../../data/experience.json";
 import "../../../scss/body/Experience.scss";
 import ExperienceBubble from "./ExperienceBubble";
+import Divider from "../../utils/Divider";
 import usePagination from "../../../hooks/usePagination";
 import Dots from './Dots'
+import Workplaces from "./Workplaces";
 
 const getExperienceMeters = (): ReactElement[] => {
   return Object.entries(experience)
@@ -17,12 +19,14 @@ const getExperienceMeters = (): ReactElement[] => {
 export default function Experience() {
   const { next, prev, setPage, paginatedItems, page, pages, transitioning } = usePagination(6, getExperienceMeters());
 
-  const btnClass = `arrow ${transitioning ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`
+  const btnClass = `arrow ${transitioning ? 'opacity-50 cursor-not-allowed' : 'cursor-default'}`
 
   return (
     <>
       <Section title="Experience" subtitle="Places of work and technologies">
         <div className='bg-gray-900 rounded-xl p-4'>
+          <Workplaces />
+          <Divider text="Framework/language comfortability ranking" />
           <div className="experience-grid">
             <div />
             <div id="experience-grid-items" className='grid justify-items-center auto-rows-auto grid-cols-3 gap-8 transform'>
