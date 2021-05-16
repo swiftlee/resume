@@ -1,5 +1,5 @@
 .divider {
-  @apply flex items-center text-center text-primary text-sm my-8;
+  @apply flex items-center text-center text-primary text-lg font-bold my-8;
 
   &::before,
   &::after {

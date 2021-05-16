@@ -1,17 +1,23 @@
 .unselected {
-  @apply overflow-hidden;
-  position: relative;
-  display: inline-block;
-  color: rgba(107, 114, 128, 1);
-  overflow: hidden;
-  background: linear-gradient(to right, rgba(96, 165, 250, 1), rgba(96, 165, 250, 1) 50%, rgba(107, 114, 128, 1) 50%);
-  background-clip: text;
-  -webkit-background-clip: text;
+  @apply overflow-x-scroll overflow-y-visible text-left;
+
+  @screen sm {
+    @apply overflow-hidden text-left;
+  }
+  background: linear-gradient(to right, rgb(96, 165, 250), rgb(96, 165, 250) 50%, rgb(209, 213, 219) 50%);
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-size: 200% 100%;
   background-position: 100%;
   transition: background-position 275ms ease;
   &:hover {
     background-position: 0 100%;
+  }
+}
+
+.workplace-wrapper {
+  @apply relative z-10 w-max p-0 m-0 list-none flex flex-row;
+  @screen sm {
+    @apply relative z-10 w-max p-0 m-0 list-none flex flex-col;
   }
 }
