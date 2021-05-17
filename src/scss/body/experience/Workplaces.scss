@@ -1,5 +1,5 @@
 .unselected {
-  @apply overflow-x-scroll overflow-y-visible text-left;
+  @apply text-left;
 
   @screen sm {
     @apply overflow-hidden text-left;
@@ -16,8 +16,43 @@
 }
 
 .workplace-wrapper {
-  @apply relative z-10 w-max p-0 m-0 list-none flex flex-row;
+  @apply relative z-10 p-0 m-0 list-none flex flex-row overflow-x-scroll;
   @screen sm {
-    @apply relative z-10 w-max p-0 m-0 list-none flex flex-col;
+    @apply relative z-10 w-max p-0 m-0 list-none flex flex-col overflow-hidden;
+  }
+}
+
+.unselected-button-wrapper {
+  @apply hover:bg-gray-800 hover:bg-opacity-50;
+}
+
+.selected-button-wrapper {
+  @apply bg-gray-800 bg-opacity-50;
+}
+
+.workplace-button {
+  @apply flex px-4 items-center justify-center cursor-default font-normal text-center select-none focus:outline-none;
+  font-size: 14.5px;
+  border: none;
+  focus: none;
+  border-bottom: 2px solid rgb(31, 41, 55);
+  min-width: 120px;
+
+  @screen sm {
+    @apply flex px-5 pb-1 items-center justify-center text-left text-lg cursor-default font-light;
+    border: none;
+    outline: none;
+    focus: none;
+    border-left: 2px solid rgb(31, 41, 55);
+  }
+}
+
+.slider {
+  @apply absolute m-0 p-0 max-w-full h-0.5 bottom-0 left-0 z-20 rounded-md bg-primary-full-opacity transition-all duration-200;
+  min-width: 120px;
+
+  @screen sm {
+    @apply absolute w-0.5 h-12 top-0 left-0 z-20 rounded-md bg-primary-full-opacity transition-all duration-200;
+    min-width: 0.125rem;
   }
 }

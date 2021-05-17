@@ -21,6 +21,9 @@ module.exports = {
         "primary-7": 'rgba(96, 165, 250, 0.7)',
         "primary-9": 'rgba(96, 165, 250, 0.9)',
         "primary-full-opacity": 'rgba(96, 165, 250, 1)'
+      },
+      spacing: {
+        "0.5": '0.125rem'
       }
     },
   },

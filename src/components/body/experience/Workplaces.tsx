@@ -1,43 +1,51 @@
-import React, { createContext, ReactElement, useContext, useEffect, useReducer } from 'react'
+import React, { createContext, ReactElement, useContext, useEffect, useReducer, useState } from 'react'
+import WorkplaceDescription from './WorkplaceDescription'
+import { useDetectViewportWidth } from '../../../hooks/useDetectViewportWidth'
 import "../../../scss/body/experience/Workplaces.scss"
+import descriptionData from '../../../data/workplaceDescriptions.json'
 
-const WorkplaceContext = createContext({})
+type Descriptions = {
+  [key: string]: { role: string, about: string }
+}
+
+const descriptions: Descriptions = descriptionData
+
+export const WorkplaceContext = createContext({})
 const reducer = (state: any, pair: { workplace: string }) => ({ ...state, ...pair })
-const initialState = { selected: 'Infotech0' }
+const initialState = { selected: 'Infotech0', description: descriptions['infotech'] }
 
 const WorkplaceProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
   const [state, update] = useReducer(reducer, initialState)
 
   return (
     <WorkplaceContext.Provider value={{ state, update }}>
-      {children}
+      <div className="flex flex-col sm:flex-row py-4 px-0 sm:p-6">
+        {children}
+      </div>
     </WorkplaceContext.Provider>
   )
 }
 
 export default function Workplaces() {
   return (
-    <div className="flex flex-row p-6 justify-center">
-      <div className='workplace-wrapper'>
-        <WorkplaceProvider>
-          <WrappedWorkplaces />
-        </WorkplaceProvider>
-      </div>
-    </div>
+    <WorkplaceProvider>
+      <WrappedWorkplaces />
+      <WorkplaceDescription />
+    </WorkplaceProvider>
   )
 }
 
 const WrappedWorkplaces = () => {
-  const workplaces = ["Infotech", "Virtual Studio", "Teaching Assistant @ UF", "Phaseos"]
   const { state, update }: any = useContext(WorkplaceContext)
+  const win = useDetectViewportWidth({ phoneStyle: `translateX(${Number.parseInt(state.selected.slice(-1)) * 120}px)`, otherStyle: `translateY(${Number.parseInt(state.selected.slice(-1)) * 48}px)` }, state)
+  const workplaces = ["Infotech", "Virtual Studio", "University of Florida", "Phaseos"]
   return (
-    <React.Fragment>
+    <div className='workplace-wrapper'>
       {workplaces.map((name, idx) => <Workplace workplace={name} id={idx} />)}
-      <div className="absolute top-0 left-0 z-20 h-12 rounded-md bg-primary-full-opacity transition-all duration-200" style={{
-        transform: `translate${window.screen.width >= 640 ? 'Y' : 'X'}(calc(${state.selected.slice(-1)} * 48px))`,
-        width: 2
+      <div className="slider" style={{
+        transform: win.responsiveStyle,
       }} />
-    </React.Fragment>
+    </div>
   )
 }
 
@@ -49,14 +57,14 @@ interface IWorkplaceProps {
 const Workplace = ({ workplace, id }: IWorkplaceProps) => {
   const { state, update }: any = useContext(WorkplaceContext)
   const handleClick = () => {
-    update({ selected: workplace + id })
+    update({ selected: workplace + id, description: descriptions[workplace.toLowerCase()] })
   }
-  return <div className='hover:bg-gray-800 hover:bg-opacity-50'>
-    <button className={`border-none px-5 pb-1 h-12 text-left text-lg items-center cursor-default font-light ${state.selected.slice(-1) === String(id)
-      ? 'text-primary-full-opacity'
-      : 'unselected'}`}
+
+  const getValueIfSelected = (selection: any, defaultValue: any) => state.selected.slice(-1) === String(id) ? selection : defaultValue
+
+  return <div className={getValueIfSelected('selected-button-wrapper', 'unselected-button-wrapper')}>
+    <button className={`workplace-button border-none h-12 ${getValueIfSelected('text-primary-full-opacity', 'unselected')}`}
       onClick={handleClick}
-      style={{ borderLeft: '2px solid rgb(31, 41, 55)', outline: 'none', }}
     ><span>{workplace}</span>
     </button>
   </div>

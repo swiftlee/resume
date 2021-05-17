@@ -1,0 +1,18 @@
+{
+  "infotech": {
+    "role": "Software Engineering Intern",
+    "about": "something something infotech"
+  },
+  "virtual studio": {
+    "role": "Lead Developer",
+    "about": "something something virtual studio"
+  },
+  "university of florida": {
+    "role": "Teaching Assistant",
+    "about": "something something virtual studio"
+  },
+  "phaseos": {
+    "role": "Co-Founder/Developer",
+    "about": "something something phaseos"
+  }
+}
