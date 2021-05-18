@@ -64,13 +64,13 @@ const Workplace = ({ workplace, id }: IWorkplaceProps) => {
       autoplay: true,
       opacity: [0, 1],
       easing: 'easeInQuad',
-      duration: 300,
-      delay: 0
+      duration: 175,
+      delay: 30
     })
 
     setTimeout(() => {
       update({ selected: workplace + id, description: descriptions[workplace.toLowerCase()] })
-    }, 10)
+    }, 40)
   }
 
   const getValueIfSelected = (selection: any, defaultValue: any) => state.selected.slice(-1) === String(id) ? selection : defaultValue

@@ -48,11 +48,19 @@
 }
 
 .slider {
-  @apply absolute m-0 p-0 max-w-full h-0.5 bottom-0 left-0 z-20 rounded-md bg-primary-full-opacity transition-all duration-200;
+  @apply absolute m-0 p-0 max-w-full h-0.5 bottom-0 left-0 z-20 rounded-md bg-primary-full-opacity;
+  transition-property: transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition-delay: 0.1s;
   min-width: 120px;
 
   @screen sm {
-    @apply absolute w-0.5 h-12 top-0 left-0 z-20 rounded-md bg-primary-full-opacity transition-all duration-200;
+    @apply absolute w-0.5 h-12 top-0 left-0 z-20 rounded-md bg-primary-full-opacity;
+    transition-property: transform;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: 0.1s;
     min-width: 0.125rem;
   }
 }
