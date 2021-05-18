@@ -1,18 +1,22 @@
 {
   "infotech": {
     "role": "Software Engineering Intern",
-    "about": "something something infotech"
-  },
-  "virtual studio": {
-    "role": "Lead Developer",
-    "about": "something something virtual studio"
+    "about": "something something infotech",
+    "dates": "May - December 2020"
   },
   "university of florida": {
     "role": "Teaching Assistant",
-    "about": "something something virtual studio"
+    "about": "something something virtual studio",
+    "dates": "Jan - May 2020"
+  },
+  "virtual studio": {
+    "role": "Lead Developer",
+    "about": "something something virtual studio",
+    "dates": "June - December 2019"
   },
   "phaseos": {
     "role": "Co-Founder/Developer",
-    "about": "something something phaseos"
+    "about": "something something phaseos",
+    "dates": "May 2020 - December 2020"
   }
 }

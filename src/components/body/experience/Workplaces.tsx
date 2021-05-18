@@ -3,6 +3,8 @@ import WorkplaceDescription from './WorkplaceDescription'
 import { useDetectViewportWidth } from '../../../hooks/useDetectViewportWidth'
 import "../../../scss/body/experience/Workplaces.scss"
 import descriptionData from '../../../data/workplaceDescriptions.json'
+import anime from "animejs";
+
 
 type Descriptions = {
   [key: string]: { role: string, about: string }
@@ -16,6 +18,16 @@ const initialState = { selected: 'Infotech0', description: descriptions['infotec
 
 const WorkplaceProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
   const [state, update] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    anime.timeline().add({
+      targets: ['.workplace-desc'],
+      autoplay: true,
+      opacity: [0, 1],
+      easing: 'easeInQuad',
+      duration: 250
+    })
+  }, [state])
 
   return (
     <WorkplaceContext.Provider value={{ state, update }}>

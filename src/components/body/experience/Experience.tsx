@@ -23,7 +23,7 @@ export default function Experience() {
 
   return (
     <>
-      <Section title="Experience" subtitle="Places of work and technologies">
+      <Section title="Experience" subtitle="Workplaces and technologies">
         <div className='bg-gray-900 rounded-xl p-4'>
           <Workplaces />
           <Divider text="Framework/language comfortability ranking" />

@@ -39,7 +39,7 @@
   min-width: 120px;
 
   @screen sm {
-    @apply flex px-5 pb-1 items-center justify-center text-left text-lg cursor-default font-light;
+    @apply flex px-5 pb-1 items-center justify-start text-left text-lg cursor-default font-light;
     border: none;
     outline: none;
     focus: none;
@@ -55,4 +55,32 @@
     @apply absolute w-0.5 h-12 top-0 left-0 z-20 rounded-md bg-primary-full-opacity transition-all duration-200;
     min-width: 0.125rem;
   }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fade;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-duration: 200ms;
+  animation-iteration-count: 1;
+}
+
+.fade-out {
+  opacity: 0;
+  animation-name: fade;
+  animation-timing-function: ease-out;
+  animation-direction: reverse;
+  animation-duration: 50ms;
+  animation-iteration-count: 1;
 }
