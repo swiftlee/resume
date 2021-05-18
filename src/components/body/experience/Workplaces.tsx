@@ -7,7 +7,7 @@ import anime from "animejs";
 
 
 type Descriptions = {
-  [key: string]: { role: string, about: string }
+  [key: string]: { role: string, about: string[], dates: string }
 }
 
 const descriptions: Descriptions = descriptionData
@@ -18,16 +18,6 @@ const initialState = { selected: 'Infotech0', description: descriptions['infotec
 
 const WorkplaceProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
   const [state, update] = useReducer(reducer, initialState)
-
-  useEffect(() => {
-    anime.timeline().add({
-      targets: ['.workplace-desc'],
-      autoplay: true,
-      opacity: [0, 1],
-      easing: 'easeInQuad',
-      duration: 250
-    })
-  }, [state])
 
   return (
     <WorkplaceContext.Provider value={{ state, update }}>
@@ -69,7 +59,18 @@ interface IWorkplaceProps {
 const Workplace = ({ workplace, id }: IWorkplaceProps) => {
   const { state, update }: any = useContext(WorkplaceContext)
   const handleClick = () => {
-    update({ selected: workplace + id, description: descriptions[workplace.toLowerCase()] })
+    anime.timeline().add({
+      targets: ['.workplace-desc'],
+      autoplay: true,
+      opacity: [0, 1],
+      easing: 'easeInQuad',
+      duration: 300,
+      delay: 0
+    })
+
+    setTimeout(() => {
+      update({ selected: workplace + id, description: descriptions[workplace.toLowerCase()] })
+    }, 10)
   }
 
   const getValueIfSelected = (selection: any, defaultValue: any) => state.selected.slice(-1) === String(id) ? selection : defaultValue
