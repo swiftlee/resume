@@ -40,7 +40,7 @@ export default function Workplaces() {
 const WrappedWorkplaces = () => {
   const { state, update }: any = useContext(WorkplaceContext)
   const win = useDetectViewportWidth({ phoneStyle: `translateX(${Number.parseInt(state.selected.slice(-1)) * 120}px)`, otherStyle: `translateY(${Number.parseInt(state.selected.slice(-1)) * 48}px)` }, state)
-  const workplaces = ["Infotech", "Virtual Studio", "University of Florida", "Phaseos"]
+  const workplaces = ["Kodai Labs", "Infotech", "Virtual Studio", "University of Florida", "Phaseos"]
   return (
     <div className='workplace-wrapper'>
       {workplaces.map((name, idx) => <Workplace workplace={name} id={idx} />)}

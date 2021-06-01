@@ -1,4 +1,13 @@
 {
+  "kodai labs": {
+    "role": "Backend Javascript Developer",
+    "about": [
+      "Reverse-engineer APIs to allow automated purchases using NodeJS",
+      "Develop scalable services that withstand heavy load with high uptime",
+      "Ensure protection from exploitation of web security vulnerabilities"
+    ],
+    "dates": "May 2021 - present"
+  },
   "infotech": {
     "role": "Software Engineering Intern",
     "about": [
